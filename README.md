@@ -61,6 +61,7 @@ A complete analysis may still require:
 - [Reproducible Analysis Plan](docs/02-reproducible-analysis-plan.md)
 - [Firmware Acquisition](docs/03-firmware-acquisition.md)
 - [Deep Analysis Roadmap](docs/04-deep-analysis-roadmap.md)
+- [libandroid_runtime.so Analysis](docs/05-libandroid-runtime-analysis.md)
 
 ## Firmware Handling
 

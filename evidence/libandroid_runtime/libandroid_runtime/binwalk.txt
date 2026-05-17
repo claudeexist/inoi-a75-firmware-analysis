@@ -1,0 +1,31 @@
+# binwalk Output
+
+```text
+Target File:   /root/firmware-lab/inoi-a75/mnt/system_a/system/lib/libandroid_runtime.so
+MD5 Checksum:  e364e1241d99e6a08261191840a4e718
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             ELF, 32-bit LSB shared object, ARM, version 1 (SYSV)
+542235        0x8461B         Ubiquiti firmware header, third party, ~CRC32: 0x58000000, version: "_FULLPATH"
+575392        0x8C7A0         Zip archive data, at least v2.0 to extract, name: META-INF/MANIFEST.MF
+575533        0x8C82D         Zip archive data, at least v2.0 to extract, name: classes.dex
+636609        0x9B6C1         End of Zip archive, footer length: 22
+1719392       0x1A3C60        xz compressed data
+
+Target File:   /root/firmware-lab/inoi-a75/mnt/system_a/system/lib64/libandroid_runtime.so
+MD5 Checksum:  de49728697ef34997c8ff3b121c2e530
+
+DECIMAL       HEXADECIMAL     DESCRIPTION
+--------------------------------------------------------------------------------
+0             0x0             ELF, 64-bit LSB shared object, version 1 (SYSV)
+393219        0x60003         mcrypt 2.2 encrypted data, algorithm: blowfish-448, mode: CBC, keymode: 8bit
+487671        0x770F7         Unix path: /sys/kernel/dma_heap/total_pools_kb
+509703        0x7C707         Unix path: /sys/fs/cgroup/memory/tasks
+640064        0x9C440         Zip archive data, at least v2.0 to extract, name: META-INF/MANIFEST.MF
+640205        0x9C4CD         Zip archive data, at least v2.0 to extract, name: classes.dex
+701281        0xAB361         End of Zip archive, footer length: 22
+2602020       0x27B424        xz compressed data
+```
+
+Note: the `xz compressed data` entries align with `.gnu_debugdata` and are not treated as malware evidence by themselves.

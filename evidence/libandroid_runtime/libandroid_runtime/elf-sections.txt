@@ -1,0 +1,43 @@
+# ELF Section Mapping
+
+Relevant section data from `readelf -S --wide`.
+
+## 32-bit library
+
+```text
+[13] .rodata PROGBITS 0005dab8 05dab8 03dcc2 00 AMS 0 0 8
+[14] .text   PROGBITS 0009c780 09b780 0ed0c8 00 AX  0 0 16
+[26] .gnu_debugdata PROGBITS 00000000 1a3c60 0140f4 00 0 0 1
+```
+
+Computed range:
+
+```text
+.rodata offset: 0x5DAB8
+.rodata size:   0x3DCC2
+.rodata end:    0x9B77A
+ZIP start:      0x8C7A0
+ZIP end record: 0x9B6C1
+```
+
+The embedded ZIP is inside `.rodata`.
+
+## 64-bit library
+
+```text
+[11] .rodata PROGBITS 000000000006cdb0 06cdb0 03e9ff 00 AMS 0 0 16
+[15] .text   PROGBITS 00000000000f3000 0f3000 15c1f8 00 AX  0 0 16
+[26] .gnu_debugdata PROGBITS 0000000000000000 27b424 00d3cc 00 0 0 1
+```
+
+Computed range:
+
+```text
+.rodata offset: 0x6CDB0
+.rodata size:   0x3E9FF
+.rodata end:    0xAB7AF
+ZIP start:      0x9C440
+ZIP end record: 0xAB361
+```
+
+The embedded ZIP is inside `.rodata`.

@@ -1,0 +1,28 @@
+# DEXNewClassLoaderExt Native Disassembly Notes
+
+The native symbol `DEXNewClassLoaderExt` exists in both 32-bit and 64-bit libraries.
+
+The 64-bit function starts at:
+
+```text
+000000000023d3e0   460 FUNC GLOBAL DEFAULT 15 DEXNewClassLoaderExt
+```
+
+Relevant string references resolved from the 64-bit function:
+
+```text
+0x9c098 java/lang/ClassLoader
+0x9bb18 getSystemClassLoader
+0x9bc68 ()Ljava/lang/ClassLoader;
+0x9ba70 dalvik/system/DexClassLoader
+0x9be88 <init>
+0x9bcd0 (Ljava/lang/String;Ljava/lang/String;Ljava/lang/String;Ljava/lang/ClassLoader;)V
+```
+
+Interpretation:
+
+```text
+The function uses JNI-style calls to locate java/lang/ClassLoader, call or reference getSystemClassLoader, locate dalvik/system/DexClassLoader, look up the DexClassLoader constructor, convert native strings to Java strings, and create a DexClassLoader object.
+```
+
+This confirms that the native library contains custom logic for dynamic DEX class loading.

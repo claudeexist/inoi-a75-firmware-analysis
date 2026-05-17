@@ -1,0 +1,48 @@
+# Embedded ZIP Metadata
+
+```text
+/root/firmware-lab/inoi-a75/extracted/embedded_payloads/libandroid_runtime_32_embedded.zip 61239 bytes
+/root/firmware-lab/inoi-a75/extracted/embedded_payloads/libandroid_runtime_64_embedded.zip 61239 bytes
+
+1968ad3dcef956501f0e5fdff58a3e531c409c4b8137393beed4c14d53636aa2  libandroid_runtime_32_embedded.zip
+1968ad3dcef956501f0e5fdff58a3e531c409c4b8137393beed4c14d53636aa2  libandroid_runtime_64_embedded.zip
+```
+
+ZIP entries:
+
+```text
+META-INF/MANIFEST.MF
+classes.dex
+```
+
+Manifest:
+
+```text
+Manifest-Version: 1.0
+Dex-Location: classes.dex
+Created-By: dx 1.16
+```
+
+classes.dex:
+
+```text
+a2b585d81ea1436a05d4fdc1f8ecb8a5668cef1b9be772110fdace83341b10e9  extracted/embedded_payloads/32/classes.dex
+a2b585d81ea1436a05d4fdc1f8ecb8a5668cef1b9be772110fdace83341b10e9  extracted/embedded_payloads/64/classes.dex
+```
+
+`zipinfo -v` summary:
+
+```text
+Zip archive file size: 61239
+Central directory contains 2 entries.
+
+META-INF/MANIFEST.MF
+compressed size:   71 bytes
+uncompressed size: 73 bytes
+modified time:     2024 Dec 23 16:51:16
+
+classes.dex
+compressed size:   60892 bytes
+uncompressed size: 86192 bytes
+modified time:     2024 Dec 23 16:51:16
+```

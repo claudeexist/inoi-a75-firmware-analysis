@@ -1,0 +1,53 @@
+# Suspicious String Offsets
+
+Command:
+
+```text
+strings -a -t x libandroid_runtime.so | rg 'SystemData|SystemConfig|JpgData|JpgConfig|DEXNewClassLoaderExt|dexClassLoaderInitArgRtnT|classOfDexClassLoader|com.system.framework.media.services|com.android.system.statlib.STMM|com.whatsapp|com.facebook.katana|com.instagram.android|jp.naver.line.android|com.twitter.android|com.android.vending|com.google.android.gms'
+```
+
+## 32-bit library
+
+```text
+0x49f88 dexClassLoaderInitArgRtnT
+0x49faa classOfDexClassLoader
+0x4a108 DEXNewClassLoaderExt
+0x5eb5d /data/local/tmp/.SystemData
+0x665d3 com.system.framework.media.services
+0x6b4ae /com.android.system.statlib.STMM
+0x6c951 com.whatsapp
+0x6ef30 com.android.vending
+0x70218 /data/local/tmp/.SystemConfig
+0x72711 /sdcard/Android/media/JpgConfig
+0x739ff com.google.android.gms
+0x783b5 /sdcard/.SystemData
+0x7a7ec com.facebook.katana
+0x7a800 /sdcard/Android/media/JpgData
+0x7dd89 com.twitter.android
+0x7dd9d com.instagram.android
+0x7f096 jp.naver.line.android
+0x83ccd /sdcard/.SystemConfig
+```
+
+## 64-bit library
+
+```text
+0x544d6 dexClassLoaderInitArgRtnT
+0x544f8 classOfDexClassLoader
+0x54583 DEXNewClassLoaderExt
+0x9ba50 /data/local/tmp/.SystemData
+0x9bc20 com.system.framework.media.services
+0x9bdb8 /com.android.system.statlib.STMM
+0x9be20 com.whatsapp
+0x9be90 com.android.vending
+0x9bea8 /data/local/tmp/.SystemConfig
+0x9bf48 /sdcard/Android/media/JpgConfig
+0x9bfa0 com.google.android.gms
+0x9c0e8 /sdcard/.SystemData
+0x9c140 com.facebook.katana
+0x9c158 /sdcard/Android/media/JpgData
+0x9c280 com.twitter.android
+0x9c298 com.instagram.android
+0x9c2e0 jp.naver.line.android
+0x9c410 /sdcard/.SystemConfig
+```

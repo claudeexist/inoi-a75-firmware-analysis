@@ -1,0 +1,12 @@
+# libandroid_runtime.so File Metadata
+
+```text
+mnt/system_a/system/lib/libandroid_runtime.so:   ELF 32-bit LSB shared object, ARM, EABI5 version 1 (SYSV), dynamically linked, BuildID[md5/uuid]=aed454a719980ea0c9500ef3a1fbd0f1, stripped
+mnt/system_a/system/lib64/libandroid_runtime.so: ELF 64-bit LSB shared object, ARM aarch64, version 1 (SYSV), dynamically linked, BuildID[md5/uuid]=10e6cf4f08da03d36c435869d5c3bc6b, stripped
+
+mnt/system_a/system/lib/libandroid_runtime.so 1802636 bytes
+mnt/system_a/system/lib64/libandroid_runtime.so 2657968 bytes
+
+1a2a9ea70915532453d30f3a211585e4bb8c5e0f667caa230591a2de7170ba5c  mnt/system_a/system/lib/libandroid_runtime.so
+0a009598815a0d83767ef9d5954f7653bbbed5a0f8e6d91d046dcd0b89fa57cd  mnt/system_a/system/lib64/libandroid_runtime.so
+```
