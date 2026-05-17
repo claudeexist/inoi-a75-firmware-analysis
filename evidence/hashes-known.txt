@@ -1,0 +1,22 @@
+# Known Hashes
+
+## Suspicious system libraries
+
+```text
+1a2a9ea70915532453d30f3a211585e4bb8c5e0f667caa230591a2de7170ba5c  /system/lib/libandroid_runtime.so
+0a009598815a0d83767ef9d5954f7653bbbed5a0f8e6d91d046dcd0b89fa57cd  /system/lib64/libandroid_runtime.so
+```
+
+## Embedded ZIP payloads extracted from libandroid_runtime.so
+
+```text
+1968ad3dcef956501f0e5fdff58a3e531c409c4b8137393beed4c14d53636aa2  libandroid_runtime_32_embedded.zip
+1968ad3dcef956501f0e5fdff58a3e531c409c4b8137393beed4c14d53636aa2  libandroid_runtime_64_embedded.zip
+```
+
+## Nested DEX payloads
+
+```text
+e0145e4f0979289ca1d7cb7b67d6f49278d1a651f5b04a628aeb46375d35c1ff  nested/a/classes.dex
+361acfe97edd118d99a87c96259a1911b8750aee540c2df709a988479b7c4791  nested/b/classes.dex
+```

@@ -1,0 +1,33 @@
+# Unique Indicator Search Results
+
+Unique indicators searched included:
+
+```text
+DEXNewClassLoaderExt
+dexClassLoaderInitArgRtnT
+classOfDexClassLoader
+com.system.framework.media.services
+com.android.system.statlib.STMM
+/data/local/tmp/.SystemData
+/sdcard/Android/media/JpgData
+Dex-Location: classes.dex
+```
+
+Matching files from mounted firmware partitions:
+
+```text
+/root/firmware-lab/inoi-a75/mnt/system_a/system/lib/libandroid_runtime.so
+/root/firmware-lab/inoi-a75/mnt/system_a/system/lib64/libandroid_runtime.so
+```
+
+Matching container image:
+
+```text
+/root/firmware-lab/inoi-a75/work/firmware/super.img
+```
+
+Notes:
+
+- `super.img` matched because it contains the `/system` partition.
+- The same unique indicators were not found in scanned APK/JAR/APEX files during this pass.
+- The same unique indicators were not found in `boot.img` or `vendor_boot.img` during this pass.
