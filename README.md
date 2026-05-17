@@ -55,6 +55,13 @@ A complete analysis may still require:
 └── scripts/
 ```
 
+## Current Documents
+
+- [Summary](docs/01-summary.md)
+- [Reproducible Analysis Plan](docs/02-reproducible-analysis-plan.md)
+- [Firmware Acquisition](docs/03-firmware-acquisition.md)
+- [Deep Analysis Roadmap](docs/04-deep-analysis-roadmap.md)
+
 ## Firmware Handling
 
 The firmware image may contain malicious code. Do not flash, execute, mount read-write, or analyze it on a personal or production machine.

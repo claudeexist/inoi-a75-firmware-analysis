@@ -1,0 +1,8 @@
+# Original Firmware Archive Hash
+
+```text
+Filename: Firmware INOI_A750_NEEA_U_V6_20250828.zip
+Size:     3448360091 bytes
+SHA256:   357434ecde981beb55dbb36126c1cb66c733b555faad690edf68ee5d0a56e4a2
+Source:   https://drive.google.com/file/d/1pIQIczD0nFDaPdPe0OGgH9iLNRN94AQu/view?usp=drivesdk
+```
