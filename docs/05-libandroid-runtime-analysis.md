@@ -236,12 +236,10 @@ More specific claims, such as message theft, account takeover, banking theft, or
 
 Supporting evidence:
 
-```text
-evidence/libandroid_runtime/file-metadata.txt
-evidence/libandroid_runtime/binwalk.txt
-evidence/libandroid_runtime/elf-sections.txt
-evidence/libandroid_runtime/native-symbols.txt
-evidence/libandroid_runtime/string-offsets.txt
-evidence/libandroid_runtime/embedded-zip-metadata.txt
-evidence/libandroid_runtime/dexclassloader-native-disassembly-notes.txt
-```
+- [file-metadata.txt](../evidence/libandroid_runtime/file-metadata.txt)
+- [binwalk.txt](../evidence/libandroid_runtime/binwalk.txt)
+- [elf-sections.txt](../evidence/libandroid_runtime/elf-sections.txt)
+- [native-symbols.txt](../evidence/libandroid_runtime/native-symbols.txt)
+- [string-offsets.txt](../evidence/libandroid_runtime/string-offsets.txt)
+- [embedded-zip-metadata.txt](../evidence/libandroid_runtime/embedded-zip-metadata.txt)
+- [dexclassloader-native-disassembly-notes.txt](../evidence/libandroid_runtime/dexclassloader-native-disassembly-notes.txt)

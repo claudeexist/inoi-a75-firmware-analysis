@@ -48,12 +48,10 @@ Tasks:
 
 Expected output:
 
-```text
-docs/05-libandroid-runtime-analysis.md
-evidence/binwalk-libandroid-runtime.txt
-evidence/libandroid-runtime-strings.txt
-evidence/libandroid-runtime-offsets.txt
-```
+- [libandroid_runtime.so Analysis](05-libandroid-runtime-analysis.md)
+- planned evidence: `evidence/binwalk-libandroid-runtime.txt`
+- planned evidence: `evidence/libandroid-runtime-strings.txt`
+- planned evidence: `evidence/libandroid-runtime-offsets.txt`
 
 ### 2. What is inside the first embedded DEX payload?
 
@@ -80,11 +78,9 @@ DEXNewClassLoaderExt
 
 Expected output:
 
-```text
-docs/06-first-stage-dex-analysis.md
-evidence/embedded-payload-hashes.txt
-evidence/first-stage-classes.txt
-```
+- superseded by [JADX Malware Code Analysis](06-jadx-malware-code-analysis.md)
+- planned evidence: `evidence/embedded-payload-hashes.txt`
+- planned evidence: `evidence/first-stage-classes.txt`
 
 ### 3. What is inside the nested DEX payloads?
 

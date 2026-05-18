@@ -63,6 +63,7 @@ A complete analysis may still require:
 - [Deep Analysis Roadmap](docs/04-deep-analysis-roadmap.md)
 - [libandroid_runtime.so Analysis](docs/05-libandroid-runtime-analysis.md)
 - [JADX Malware Code Analysis](docs/06-jadx-malware-code-analysis.md)
+- [Selected Decompiled JADX Source Evidence](evidence/jadx_sources/README.md)
 
 ## Firmware Handling
 
