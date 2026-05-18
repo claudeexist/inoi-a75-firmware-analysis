@@ -21,7 +21,7 @@ Both files contain an embedded ZIP/DEX payload. The payload includes dynamic loa
 
 The same unique indicators were searched across the extracted firmware partitions. During this analysis, the matching unique indicators were found only in the two `libandroid_runtime.so` files and in `super.img`, which is the container image that includes the `/system` partition.
 
-No clear static C2 domain or URL has been confirmed yet.
+Static analysis has now decoded several embedded network endpoint strings. These are documented as static indicators; live operation and ownership are not asserted without dynamic verification.
 
 ## Important Scope Notes
 
@@ -62,6 +62,7 @@ A complete analysis may still require:
 - [Firmware Acquisition](docs/03-firmware-acquisition.md)
 - [Deep Analysis Roadmap](docs/04-deep-analysis-roadmap.md)
 - [libandroid_runtime.so Analysis](docs/05-libandroid-runtime-analysis.md)
+- [JADX Malware Code Analysis](docs/06-jadx-malware-code-analysis.md)
 
 ## Firmware Handling
 
