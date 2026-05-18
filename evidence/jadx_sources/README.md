@@ -21,6 +21,13 @@ The full decompiled output remains in the analysis workspace on `node2`. This re
 - [c.java](nested_a/com/android/packageinstaller/extplog/c.java)
 - [d.java](nested_a/com/android/packageinstaller/extplog/d.java)
 
+## Decoded Network Endpoint Sources
+
+- [nested_b/com/android/systemupdate/a/a.java line 36](nested_b/com/android/systemupdate/a/a.java#L36): encoded `he2o9t.com` endpoint byte arrays.
+- [nested_b/com/android/systemupdate/a/b.java line 13](nested_b/com/android/systemupdate/a/b.java#L13): encoded `0gubvi.com` endpoint byte arrays.
+- [nested_b/com/android/systemupdate/a/b.java line 26](nested_b/com/android/systemupdate/a/b.java#L26): encoded `s6jvxl.com` endpoint byte array.
+- [nested_b/com/android/systemupdate/a/a/o.java lines 33-34](nested_b/com/android/systemupdate/a/a/o.java#L33): XOR decode logic used for these constants.
+
 ## Nested Payload B: Network/Task/Plugin Loader
 
 - [services.java](nested_b/com/android/systemupdate/services.java)
