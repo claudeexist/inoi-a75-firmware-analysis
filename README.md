@@ -65,7 +65,9 @@ A complete analysis may still require:
 - [JADX Malware Code Analysis](docs/06-jadx-malware-code-analysis.md)
 - [Antivirus Detection Evidence](docs/07-antivirus-detection-evidence.md)
 - [Malware Execution Flow](docs/08-malware-execution-flow.md)
+- [Social App Abuse Investigation](docs/09-social-app-abuse-investigation.md)
 - [Selected Decompiled JADX Source Evidence](evidence/jadx_sources/README.md)
+- [Native Social Package Symbol Map](evidence/native_analysis/social-package-symbol-map.md)
 - [Antivirus Scan Screenshots](evidence/av_scans/README.md)
 
 ## Firmware Handling
