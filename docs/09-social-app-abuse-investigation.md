@@ -22,6 +22,14 @@ Not confirmed yet:
 - Telegram-specific package references in the currently extracted payload/native strings
 - the exact runtime task delivered by the command server to affected devices
 
+## Ghidra Update
+
+Ghidra native analysis now confirms that the package table is used by executable loader code, not just stored as loose strings. The function `___andver_log_println` reads the current process name, compares it with the package table, builds a path under `/data/data/<process>/ext_oat`, writes the embedded JAR payload, loads it with `DexClassLoader`, instantiates `com.system.framework.media.services`, and invokes `onCreate(I)V`.
+
+See [Ghidra Native Loader Analysis](10-ghidra-native-loader-analysis.md) and [ghidra-native-loader-evidence.md](../evidence/native_analysis/ghidra-native-loader-evidence.md).
+
+This strengthens the claim that WhatsApp/Instagram package names are part of active native loader logic. It still does not prove direct credential theft or message sending from the static firmware sample.
+
 ## Native Package Table
 
 The package strings are not only loose text strings. They are referenced by named global symbols in the infected native libraries.
@@ -64,11 +72,11 @@ Relevant path/loader symbols include:
 
 The native package table is strong evidence that the malware has package-aware behavior. The table explicitly names social apps, messaging apps, package installers, contacts, settings, browsers, Google Play services, Play Store, launcher, dialer, and Android framework components.
 
-The presence of `/data/data/` next to these package names is concerning because `/data/data/<package>` is where Android app-private data normally lives. However, this alone does not prove that the current firmware sample reads WhatsApp or Instagram private databases. The next step is to identify the native function that combines `databasedir` with the `appkpackage*` symbols, then prove what it does with the resulting path.
+The presence of `/data/data/` next to these package names is concerning because `/data/data/<package>` is where Android app-private data normally lives. Ghidra now shows the native loader uses `databasedir` with the current process name, then writes and loads the embedded JAR payload from `/data/data/<process>/ext_oat`. This proves process-aware payload loading, but it still does not prove that the static firmware sample directly reads WhatsApp or Instagram private databases.
 
 The current safe claim is:
 
-> The infected native runtime library contains a package-aware configuration table that explicitly includes WhatsApp, Instagram, Facebook, LINE, Twitter/X, SMS/MMS apps, contacts, browsers, package installers, and `/data/data/`. This supports suspicion of targeted app-aware behavior, but the exact action against each app still requires native xref/decompilation or runtime evidence.
+> The infected native runtime library contains active package-aware loader logic that explicitly compares the current process name against WhatsApp, Instagram, Facebook, LINE, Twitter/X, SMS/MMS apps, contacts, browsers, package installers, and other Android package names. It then loads an embedded JAR/DEX payload from app-private storage and calls `com.system.framework.media.services.onCreate(I)`. This proves targeted app-aware execution logic, but direct credential theft or message sending still requires additional code or runtime network evidence.
 
 ## Abuse Hypotheses To Test
 
@@ -95,7 +103,7 @@ Priority native targets:
 Tooling plan:
 
 - continue radare2 symbol/xref analysis
-- use Ghidra headless if radare2 xrefs remain incomplete
+- continue Ghidra/radare2 native analysis for functions not yet mapped
 - export decompiled native functions into evidence files only after confirming they are relevant
 - keep claims conservative until a function or runtime capture proves the exact action
 

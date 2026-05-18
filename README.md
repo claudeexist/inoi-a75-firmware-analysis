@@ -21,7 +21,7 @@ Both files contain an embedded ZIP/DEX payload. The payload includes dynamic loa
 
 The same unique indicators were searched across the extracted firmware partitions. During this analysis, the matching unique indicators were found only in the two `libandroid_runtime.so` files and in `super.img`, which is the container image that includes the `/system` partition.
 
-Static analysis has now decoded several embedded network endpoint strings. These are documented as static indicators; live operation and ownership are not asserted without dynamic verification.
+Static analysis has now decoded several embedded network endpoint strings. These are documented as static indicators; live operation and ownership are not asserted without dynamic verification. Ghidra native analysis also confirms that the package-name table is used by executable native loader logic before the Java payload is loaded; see [Ghidra Native Loader Analysis](docs/10-ghidra-native-loader-analysis.md).
 
 ## Important Scope Notes
 
@@ -66,8 +66,10 @@ A complete analysis may still require:
 - [Antivirus Detection Evidence](docs/07-antivirus-detection-evidence.md)
 - [Malware Execution Flow](docs/08-malware-execution-flow.md)
 - [Social App Abuse Investigation](docs/09-social-app-abuse-investigation.md)
+- [Ghidra Native Loader Analysis](docs/10-ghidra-native-loader-analysis.md)
 - [Selected Decompiled JADX Source Evidence](evidence/jadx_sources/README.md)
 - [Native Social Package Symbol Map](evidence/native_analysis/social-package-symbol-map.md)
+- [Ghidra Native Loader Evidence](evidence/native_analysis/ghidra-native-loader-evidence.md)
 - [Antivirus Scan Screenshots](evidence/av_scans/README.md)
 
 ## Firmware Handling
