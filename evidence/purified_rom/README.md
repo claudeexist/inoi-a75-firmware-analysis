@@ -6,6 +6,7 @@ Files:
 
 - [ROM comparison summary](rom-comparison-summary.txt)
 - [IOC pattern comparison](ioc-pattern-comparison.txt)
+- [Update-binary review](update-binary-review.md)
+- [Additional APK review](additional-apk-review.md)
 
 The evidence here is static analysis only. It supports the conclusion that the known Triada-related injected loader and embedded payload were absent from the tested purified `libandroid_runtime.so` files. It does not prove the whole ROM is safe to flash or safe to use for personal accounts.
-

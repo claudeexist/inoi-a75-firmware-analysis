@@ -52,6 +52,22 @@ odm_dlkm        4
 vendor_dlkm   189
 ```
 
+## Flash Update Script
+
+The archive includes `META-INF/com/google/android/update-binary`.
+
+Observed properties:
+
+- The file is an ASCII `/sbin/sh` script, not an opaque native binary.
+- It extracts `lptools`, `zstd`, and optionally `simg2img` into `/tmp`.
+- It reads the current slot from `ro.boot.slot_suffix`.
+- It removes and recreates these dynamic partitions for the current slot: `system`, `product`, `system_ext`, `vendor`, `vendor_dlkm`, and `odm_dlkm`.
+- It flashes the corresponding images from the ZIP to `/dev/block/mapper/<partition><slot>`.
+
+No network download, credential handling, or extra payload fetch was observed in this script during static review. The script is still destructive by design because it removes and recreates dynamic partitions before flashing images.
+
+See [update-binary review evidence](../evidence/purified_rom/update-binary-review.md).
+
 ## Target Runtime Libraries
 
 Original infected firmware:
@@ -130,6 +146,45 @@ A broader search returned one match inside `GmsCore.apk` for a generic Google Pl
 
 See [ROM comparison summary evidence](../evidence/purified_rom/rom-comparison-summary.txt).
 
+## Added APKs In The Purified ROM
+
+The purified ROM contains five package-like files that were not present in the original firmware comparison set:
+
+```text
+system/app/Blibli-11.6.0_66615.apk
+system/app/Langit_musik5.16.1.1-GP.apk
+system/app/inoi_apps_store.apk
+system/app/paw-rumble-release-production/paw-rumble-release-production.apk
+vendor/app/SensorHub/SensorHub.apk
+```
+
+This means the purified ROM is not only a minimal malware-removal build. It also changes the preinstalled app set.
+
+No known Triada indicators from the previous `libandroid_runtime.so` analysis were found in these five APKs during a direct binary string scan. However, the additional app set still changes the device risk profile.
+
+Most notably, `inoi_apps_store.apk` requests package installation and broad package visibility permissions:
+
+```text
+android.permission.REQUEST_INSTALL_PACKAGES
+android.permission.INSTALL_PACKAGES
+android.permission.MANAGE_EXTERNAL_STORAGE
+android.permission.QUERY_ALL_PACKAGES
+android.permission.REQUEST_DELETE_PACKAGES
+```
+
+JADX decompilation of `inoi_apps_store.apk` showed:
+
+- API base URL: `http://203.175.11.220/api/v1/`
+- image/download base URL: `http://203.175.11.220/`
+- a hard-coded JWT-like API key in source code, redacted in this repository
+- Retrofit API calls for app listing, app detail, ranking, banners, categories, and download URLs
+- code paths that download APK files and invoke Android package installation flows
+- a declared Device Admin receiver with password-related policies in `res/xml/device_owner_receiver.xml`
+
+This does not prove that `inoi_apps_store.apk` is malware. It does prove that the purified ROM adds a privileged app-store style component with clear security and privacy implications. Treat it as a separate item requiring deeper review before flashing the ROM on a personal device.
+
+See [additional APK review evidence](../evidence/purified_rom/additional-apk-review.md).
+
 ## What The Community Developer Likely Changed
 
 Based on the artifact-level comparison, the developer most likely replaced or rebuilt both `libandroid_runtime.so` files so that the injected native loader and embedded DEX payload were removed.
@@ -145,6 +200,7 @@ What this comparison supports:
 - The known Triada-related payload previously documented in the original `libandroid_runtime.so` files is absent from the tested purified ROM.
 - Both target libraries were changed, not merely renamed.
 - The strong known IOC set did not reappear elsewhere in the mounted purified partitions.
+- The ZIP flash script appears to flash local partition images and did not show a network-fetch stage in static review.
 
 What this comparison does not prove:
 
@@ -153,6 +209,7 @@ What this comparison does not prove:
 - There is no unrelated malware, backdoor, adware, or privacy-invasive component.
 - Runtime network behavior is clean.
 - The ROM is signed, verified, or compatible with every INOI A75 variant.
+- The added APKs are safe, privacy-preserving, or appropriate for a security-focused cleaned ROM.
 
 ## Next Analysis Steps
 
@@ -164,4 +221,4 @@ Recommended next steps before treating the ROM as safer for daily use:
 4. Compare app lists and privileged permissions between the infected and purified firmware.
 5. Boot only on a disposable test device or emulator-like lab setup if possible, then monitor DNS, HTTP(S) SNI, destination IPs, and suspicious background activity.
 6. Verify whether the device can retain verified boot or whether flashing requires disabling verification.
-
+7. Decompile and review the added APKs, especially `inoi_apps_store.apk`, before calling the purified ROM safe.
