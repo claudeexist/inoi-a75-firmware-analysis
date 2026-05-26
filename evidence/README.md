@@ -18,3 +18,7 @@ command logs
 ```
 
 Binary firmware samples should be handled separately with hashes and safety warnings.
+
+Additional evidence:
+
+- [Purified ROM comparison evidence](purified_rom/README.md)

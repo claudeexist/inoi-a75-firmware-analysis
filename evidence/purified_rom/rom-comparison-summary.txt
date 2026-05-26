@@ -1,0 +1,40 @@
+# Purified firmware archive
+e8e2bd81003b7223681e1e1222620df29185b0c4a1011f2301fbba8b7343af0a  /root/firmware-lab/inoi-a75-purified/downloads/STOCK_INOIA75_EROFS.zip
+/root/firmware-lab/inoi-a75-purified/downloads/STOCK_INOIA75_EROFS.zip size=3079297584
+
+# libandroid_runtime.so hashes and sizes
+1a2a9ea70915532453d30f3a211585e4bb8c5e0f667caa230591a2de7170ba5c  /root/firmware-lab/inoi-a75/mnt/system_a/system/lib/libandroid_runtime.so
+0a009598815a0d83767ef9d5954f7653bbbed5a0f8e6d91d046dcd0b89fa57cd  /root/firmware-lab/inoi-a75/mnt/system_a/system/lib64/libandroid_runtime.so
+98c418cf1b1c77c359e5ceea38c18b75053b83fbc1d90be6afab752f5784407e  /root/firmware-lab/inoi-a75-purified/mnt/system/system/lib/libandroid_runtime.so
+e4b98718cceb73b505489ec95a51158228a95b6f7f3a1f9c42578d28f768181f  /root/firmware-lab/inoi-a75-purified/mnt/system/system/lib64/libandroid_runtime.so
+/root/firmware-lab/inoi-a75/mnt/system_a/system/lib/libandroid_runtime.so size=1802636
+/root/firmware-lab/inoi-a75/mnt/system_a/system/lib64/libandroid_runtime.so size=2657968
+/root/firmware-lab/inoi-a75-purified/mnt/system/system/lib/libandroid_runtime.so size=1700580
+/root/firmware-lab/inoi-a75-purified/mnt/system/system/lib64/libandroid_runtime.so size=2546024
+
+# Build IDs
+/root/firmware-lab/inoi-a75/mnt/system_a/system/lib/libandroid_runtime.so
+    Build ID: aed454a719980ea0c9500ef3a1fbd0f1
+/root/firmware-lab/inoi-a75/mnt/system_a/system/lib64/libandroid_runtime.so
+    Build ID: 10e6cf4f08da03d36c435869d5c3bc6b
+/root/firmware-lab/inoi-a75-purified/mnt/system/system/lib/libandroid_runtime.so
+    Build ID: 5ea79754dd87bc2fd7938cc95467a7f6
+/root/firmware-lab/inoi-a75-purified/mnt/system/system/lib64/libandroid_runtime.so
+    Build ID: 62677d0957c4be9de9dc78a39815f6fe
+
+# Mounted partition file counts
+system 3114
+product 501
+system_ext 646
+vendor 2371
+odm_dlkm 4
+vendor_dlkm 189
+
+# Strong IOC search line counts
+  0 purified-strong-ioc-search.txt
+  1 purified-ioc-search.txt
+  1 total
+
+# Broad IOC search content
+mnt/product/priv-app/GmsCore/GmsCore.apk:862734: contains generic Google Play Services strings including os.config.ppgl.*. This is treated as a broad-search false positive, not as Triada evidence.
+

@@ -1,0 +1,84 @@
+## infected_32
+path=/root/firmware-lab/inoi-a75/mnt/system_a/system/lib/libandroid_runtime.so
+PK\x03\x04: 0x8c7a0, 0x8c82d
+classes.dex: 0x8c84b, 0x9b6b6
+_c_cvfua1: 0x49a78
+DEXNewClassLoaderExt: 0x4a108
+load_jm_model: 0x4a211
+jm_model_config: 0x63d82
+com.system.framework.media.services: 0x665d3
+com.android.system.statlib.STMM: 0x6b4af
+com@system@framework@media@v2306: 0x60116, 0x81808
+/.google_service_config: 0x68851
+/.cofigs: 0x75d28
+/ext_oat: 0x6dafb
+com.whatsapp: 0x6c951
+com.instagram.android: 0x7dd9d
+org.telegram.messenger: ABSENT
+he2o9t: ABSENT
+0gubvi: ABSENT
+s6jvxl: ABSENT
+
+## infected_64
+path=/root/firmware-lab/inoi-a75/mnt/system_a/system/lib64/libandroid_runtime.so
+PK\x03\x04: 0x9c440, 0x9c4cd
+classes.dex: 0x9c4eb, 0xab356
+_c_cvfua1: 0x53fc6
+DEXNewClassLoaderExt: 0x54583
+load_jm_model: 0x5468c
+jm_model_config: 0x9bb78
+com.system.framework.media.services: 0x9bc20
+com.android.system.statlib.STMM: 0x9bdb9
+com@system@framework@media@v2306: 0x9bae1, 0x9c361
+/.google_service_config: 0x9bc88
+/.cofigs: 0x9c028
+/ext_oat: 0x9be78
+com.whatsapp: 0x9be20
+com.instagram.android: 0x9c298
+org.telegram.messenger: ABSENT
+he2o9t: ABSENT
+0gubvi: ABSENT
+s6jvxl: ABSENT
+
+## purified_32
+path=/root/firmware-lab/inoi-a75-purified/mnt/system/system/lib/libandroid_runtime.so
+PK\x03\x04: ABSENT
+classes.dex: ABSENT
+_c_cvfua1: ABSENT
+DEXNewClassLoaderExt: ABSENT
+load_jm_model: ABSENT
+jm_model_config: ABSENT
+com.system.framework.media.services: ABSENT
+com.android.system.statlib.STMM: ABSENT
+com@system@framework@media@v2306: ABSENT
+/.google_service_config: ABSENT
+/.cofigs: ABSENT
+/ext_oat: ABSENT
+com.whatsapp: ABSENT
+com.instagram.android: ABSENT
+org.telegram.messenger: ABSENT
+he2o9t: ABSENT
+0gubvi: ABSENT
+s6jvxl: ABSENT
+
+## purified_64
+path=/root/firmware-lab/inoi-a75-purified/mnt/system/system/lib64/libandroid_runtime.so
+PK\x03\x04: ABSENT
+classes.dex: ABSENT
+_c_cvfua1: ABSENT
+DEXNewClassLoaderExt: ABSENT
+load_jm_model: ABSENT
+jm_model_config: ABSENT
+com.system.framework.media.services: ABSENT
+com.android.system.statlib.STMM: ABSENT
+com@system@framework@media@v2306: ABSENT
+/.google_service_config: ABSENT
+/.cofigs: ABSENT
+/ext_oat: ABSENT
+com.whatsapp: ABSENT
+com.instagram.android: ABSENT
+org.telegram.messenger: ABSENT
+he2o9t: ABSENT
+0gubvi: ABSENT
+s6jvxl: ABSENT
+

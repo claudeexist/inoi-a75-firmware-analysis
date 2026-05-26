@@ -73,6 +73,23 @@ super.img
 
 The same unique indicators were not found in the scanned APK/JAR/APEX files, `boot.img`, or `vendor_boot.img` during this pass.
 
+## Community Purified ROM Comparison
+
+A community-provided "Stock ROM INOI A75 purified" image was downloaded from the user-provided MediaFire source and unpacked on the analysis VPS. The archive was verified with `unzip -tq`, decompressed, and mounted read-only.
+
+The purified ROM contains replacement or modified versions of both target runtime libraries:
+
+```text
+98c418cf1b1c77c359e5ceea38c18b75053b83fbc1d90be6afab752f5784407e  /system/lib/libandroid_runtime.so
+e4b98718cceb73b505489ec95a51158228a95b6f7f3a1f9c42578d28f768181f  /system/lib64/libandroid_runtime.so
+```
+
+The known Triada-related strings and embedded ZIP/DEX markers found in the original infected libraries were absent from both purified libraries. A strong IOC search across the mounted purified partitions also returned zero matches.
+
+This supports a narrow conclusion: the known injected loader/payload previously documented in `libandroid_runtime.so` was removed from, or replaced in, the tested purified ROM artifact. It does not prove that the complete ROM is safe to flash, that the boot chain is trustworthy, or that no unrelated backdoor exists.
+
+See [Purified ROM Comparison](11-purified-rom-comparison.md) and [Purified ROM Evidence](../evidence/purified_rom/README.md).
+
 ## Limitations
 
 This is not yet a complete end-to-end forensic report.
@@ -83,3 +100,4 @@ Known limitations:
 - Native-code reverse engineering is not complete.
 - Dynamic execution/network behavior has not yet been confirmed in an isolated lab.
 - No static C2 domain or URL has been confirmed yet.
+- The purified ROM comparison is currently static analysis only and does not validate bootloader, verified boot, rollback protection, update scripts, or runtime behavior on a real device.

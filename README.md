@@ -23,6 +23,8 @@ The same unique indicators were searched across the extracted firmware partition
 
 Static analysis has now decoded several embedded network endpoint strings. These are documented as static indicators; live operation and ownership are not asserted without dynamic verification. Ghidra native analysis also confirms that the package-name table is used by executable native loader logic before the Java payload is loaded; see [Ghidra Native Loader Analysis](docs/10-ghidra-native-loader-analysis.md).
 
+A community-provided "purified" ROM was also compared against the original firmware artifacts. The known Triada-related indicators previously found in both `libandroid_runtime.so` files were not present in the tested purified ROM libraries, and the purified libraries have different hashes, sizes, and Build IDs. This is evidence that the known injected loader/payload was removed or replaced, but it is not a full guarantee that every other firmware component is clean. See [Purified ROM Comparison](docs/11-purified-rom-comparison.md).
+
 ## Important Scope Notes
 
 This repository does not currently claim that every partition, boot component, or firmware blob has been fully reverse engineered.
@@ -67,10 +69,12 @@ A complete analysis may still require:
 - [Malware Execution Flow](docs/08-malware-execution-flow.md)
 - [Social App Abuse Investigation](docs/09-social-app-abuse-investigation.md)
 - [Ghidra Native Loader Analysis](docs/10-ghidra-native-loader-analysis.md)
+- [Purified ROM Comparison](docs/11-purified-rom-comparison.md)
 - [Selected Decompiled JADX Source Evidence](evidence/jadx_sources/README.md)
 - [Native Social Package Symbol Map](evidence/native_analysis/social-package-symbol-map.md)
 - [Ghidra Native Loader Evidence](evidence/native_analysis/ghidra-native-loader-evidence.md)
 - [Antivirus Scan Screenshots](evidence/av_scans/README.md)
+- [Purified ROM Evidence](evidence/purified_rom/README.md)
 
 ## Firmware Handling
 
