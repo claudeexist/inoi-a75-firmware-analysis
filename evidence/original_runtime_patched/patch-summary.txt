@@ -1,0 +1,65 @@
+# Package
+dbaa1b2c8190f6e608aa497d4ac147ffefdc4a6f2ff12fc7bfcf47b4082548d8  lib-ori-inoi-patched.zip
+
+# module.prop
+id=inoi_runt_patched
+name=INOI runtime patched
+version=1.0
+versionCode=1
+author=CoreShiftD
+
+# Original vs patched hashes
+1a2a9ea70915532453d30f3a211585e4bb8c5e0f667caa230591a2de7170ba5c  original /system/lib/libandroid_runtime.so
+e2fc5c719fce77b9bbcdd68facfe1f2d5a9d4f1f706597181ed7644329867f20  patched  /system/lib/libandroid_runtime.so
+
+0a009598815a0d83767ef9d5954f7653bbbed5a0f8e6d91d046dcd0b89fa57cd  original /system/lib64/libandroid_runtime.so
+3b391662bb15646186ab273c2ad1445607bfae9363a4c6cc68a3e1efe778d4b6  patched  /system/lib64/libandroid_runtime.so
+
+# Sizes
+32-bit original: 1802636
+32-bit patched:  1802636
+64-bit original: 2657968
+64-bit patched:  2657968
+
+# Build IDs
+32-bit original and patched: aed454a719980ea0c9500ef3a1fbd0f1
+64-bit original and patched: 10e6cf4f08da03d36c435869d5c3bc6b
+
+# Byte difference counts
+32-bit changed bytes: 62433
+64-bit changed bytes: 62493
+
+# Changed sections
+32-bit .rodata changed bytes: 62358, all changed to zero
+32-bit .text changed bytes: 75
+
+64-bit .rodata changed bytes: 62358, all changed to zero
+64-bit .text changed bytes: 135
+
+# _c_cvfua1 embedded payload region
+32-bit patched: nonzero=0/61239
+64-bit patched: nonzero=0/61239
+patched zeroed region SHA256: e3ce6872d2e629b07374d6a070a10def4c3955efd4737e1485a4c5479e9c67a4
+
+32-bit original: nonzero=60882/61239
+64-bit original: nonzero=60882/61239
+original payload region SHA256: 1968ad3dcef956501f0e5fdff58a3e531c409c4b8137393beed4c14d53636aa2
+
+# Indicators absent from patched payload/data areas
+jm_model_config
+com.system.framework.media.services
+com.android.system.statlib.STMM
+com@system@framework@media@v2306
+/.google_service_config
+/.cofigs
+/ext_oat
+classes.dex
+com.whatsapp
+com.instagram.android
+
+# Suspicious dynamic symbols still present
+_c_cvfua1
+DEXNewClassLoaderExt
+load_jm_model
+DexClassLoader
+

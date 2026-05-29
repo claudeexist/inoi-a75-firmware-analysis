@@ -90,6 +90,21 @@ This supports a narrow conclusion: the known injected loader/payload previously 
 
 See [Purified ROM Comparison](11-purified-rom-comparison.md) and [Purified ROM Evidence](../evidence/purified_rom/README.md).
 
+## Original INOI Runtime Patched Variant
+
+A separate community package named `INOI runtime patched` was analyzed. It contains both original INOI `libandroid_runtime.so` files with the same file sizes and Build IDs as the infected original firmware, but different SHA256 hashes.
+
+The patch does not replace the runtime libraries with clean libraries from another device. Instead, it manually changes the original binaries:
+
+- the `_c_cvfua1` embedded payload region is zeroed completely in both 32-bit and 64-bit libraries
+- many Triada-related strings in `.rodata` are zeroed, including target app package names and loader paths
+- several native loader/helper functions are stubbed to return immediately
+- exported suspicious symbols such as `_c_cvfua1`, `load_jm_model`, and `DEXNewClassLoaderExt` still remain in the dynamic symbol table
+
+This supports the community claim that the malware was "disabled" or "damaged", not removed cleanly. The known Java payload is no longer recoverable from the patched libraries, and key loader functions are forced to return failure. However, the malicious code structure and symbol identity remain, so antivirus detection can reasonably remain.
+
+See [Original INOI Runtime Patched Library Analysis](12-original-inoi-runtime-patched-analysis.md) and [Original Runtime Patch Evidence](../evidence/original_runtime_patched/README.md).
+
 ## Limitations
 
 This is not yet a complete end-to-end forensic report.
@@ -101,3 +116,4 @@ Known limitations:
 - Dynamic execution/network behavior has not yet been confirmed in an isolated lab.
 - No static C2 domain or URL has been confirmed yet.
 - The purified ROM comparison is currently static analysis only and does not validate bootloader, verified boot, rollback protection, update scripts, or runtime behavior on a real device.
+- The original-runtime patched variant has not been dynamically executed; the current conclusion is based on static binary diffing and disassembly.

@@ -25,6 +25,8 @@ Static analysis has now decoded several embedded network endpoint strings. These
 
 A community-provided "purified" ROM was also compared against the original firmware artifacts. The known Triada-related indicators previously found in both `libandroid_runtime.so` files were not present in the tested purified ROM libraries, and the purified libraries have different hashes, sizes, and Build IDs. This is evidence that the known injected loader/payload was removed or replaced, but it is not a full guarantee that every other firmware component is clean. See [Purified ROM Comparison](docs/11-purified-rom-comparison.md).
 
+A separate community patch named `INOI runtime patched` was also analyzed. Unlike the purified ROM, this patch keeps the original INOI runtime libraries and manually neutralizes the malicious loader by zeroing the embedded payload/data and stubbing several native loader/helper functions. Antivirus products may still detect this variant because the library identity and exported suspicious symbols remain. See [Original INOI Runtime Patched Library Analysis](docs/12-original-inoi-runtime-patched-analysis.md).
+
 ## Important Scope Notes
 
 This repository does not currently claim that every partition, boot component, or firmware blob has been fully reverse engineered.
@@ -70,11 +72,13 @@ A complete analysis may still require:
 - [Social App Abuse Investigation](docs/09-social-app-abuse-investigation.md)
 - [Ghidra Native Loader Analysis](docs/10-ghidra-native-loader-analysis.md)
 - [Purified ROM Comparison](docs/11-purified-rom-comparison.md)
+- [Original INOI Runtime Patched Library Analysis](docs/12-original-inoi-runtime-patched-analysis.md)
 - [Selected Decompiled JADX Source Evidence](evidence/jadx_sources/README.md)
 - [Native Social Package Symbol Map](evidence/native_analysis/social-package-symbol-map.md)
 - [Ghidra Native Loader Evidence](evidence/native_analysis/ghidra-native-loader-evidence.md)
 - [Antivirus Scan Screenshots](evidence/av_scans/README.md)
 - [Purified ROM Evidence](evidence/purified_rom/README.md)
+- [Original Runtime Patch Evidence](evidence/original_runtime_patched/README.md)
 
 ## Firmware Handling
 
